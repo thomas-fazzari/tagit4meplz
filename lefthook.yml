@@ -1,0 +1,15 @@
+pre-commit:
+  jobs:
+    - name: python
+      glob: "**/*.py"
+      group:
+        jobs:
+          - run: uv run ruff check --fix {staged_files}
+            stage_fixed: true
+          - run: uv run ruff format {staged_files}
+            stage_fixed: true
+
+pre-push:
+  jobs:
+    - name: check
+      run: mise run check

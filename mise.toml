@@ -1,0 +1,37 @@
+min_version = "2026.9.0"
+
+[tools]
+python = "3.14.7"
+uv = "0.12.21"
+lefthook = "2.1.15"
+
+[env]
+_.python.venv = { path = ".venv", create = false }
+
+[tasks.default]
+description = "Same as check"
+depends = ["check"]
+
+[tasks.install]
+description = "Installs the Python dependencies"
+run = "uv sync --locked"
+
+[tasks.lint]
+description = "Checks Python lint, formatting and types"
+run = ["uv run ruff check", "uv run ruff format --check", "uv run basedpyright"]
+
+[tasks.format]
+description = "Formats Python files"
+run = ["uv run ruff check --fix", "uv run ruff format"]
+
+[tasks.test]
+description = "Runs the tests, with extra arguments passed to pytest"
+run = "uv run pytest"
+
+[tasks.check]
+description = "All lint and test checks"
+depends = ["lint", "test"]
+
+[tasks."hooks:install"]
+description = "Installs the Git hooks"
+run = "lefthook install"

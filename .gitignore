@@ -1,0 +1,38 @@
+# Ignore everything by default
+*
+
+# Except this
+!/.gitignore
+!/.editorconfig
+!/README.md
+!/LICENSE
+!/mise.toml
+!/pyproject.toml
+!/uv.lock
+!/lefthook.yml
+!/install.py
+
+!/tagit4meplz/
+!/tagit4meplz/SKILL.md
+!/tagit4meplz/style.toml
+!/tagit4meplz/references/
+!/tagit4meplz/references/*.md
+!/tagit4meplz/tools/
+!/tagit4meplz/tools/t4m.py
+!/tagit4meplz/tools/t4mlib/
+!/tagit4meplz/tools/t4mlib/*.py
+
+!/tests/
+!/tests/*.py
+
+!/typings/
+!/typings/**/
+!/typings/**/*.pyi
+
+!/.vscode/
+!/.vscode/settings.json
+!/.vscode/extensions.json
+
+# Generated files inside allowed dirs
+**/__pycache__/
+**/.DS_Store

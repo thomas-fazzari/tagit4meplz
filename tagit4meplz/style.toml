@@ -1,0 +1,21 @@
+[compilation]
+albumartist = "Various Artists"
+
+[titles]
+featuring = "title"
+keep_original_mix = true
+
+[cover]
+max_px = 1400
+min_px = 500
+quality = 90
+
+[audio]
+min_lossy_kbps = 256
+
+[id3]
+version = 4
+separator = "; "
+
+[required]
+fields = ["title", "artist", "album", "albumartist", "tracknumber", "date", "genre", "label"]

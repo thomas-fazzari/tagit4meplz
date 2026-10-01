@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "detachhead.basedpyright",
+    "EditorConfig.EditorConfig",
+    "tamasfe.even-better-toml",
+    "hverlin.mise-vscode"
+  ],
+  "unwantedRecommendations": ["ms-python.vscode-pylance", "ms-python.mypy-type-checker"]
+}

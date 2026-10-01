@@ -1,0 +1,57 @@
+[project]
+name = "tagit4meplz"
+version = "0.1.0"
+description = "Skill and tools for editing audio metadata with an LLM"
+requires-python = ">=3.12"
+dependencies = ["mutagen==1.48.1"]
+
+[dependency-groups]
+dev = ["basedpyright==1.40.1", "pytest==9.1.1", "ruff==0.16.10"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["tagit4meplz/tools"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "COM812", # conflicts with the formatter
+  "CPY",    # no copyright headers
+  "D",      # scripts are meant to be used by agents, who cares
+  "TRY003", # short inline exception messages are fine
+]
+
+[tool.ruff.lint.per-file-ignores]
+"install.py" = ["INP001", "T201", "S310"]
+"tagit4meplz/tools/t4m.py" = ["INP001", "T201"]
+"tagit4meplz/tools/t4mlib/proc.py" = ["S603", "S607"]
+"typings/**" = ["N802", "FBT001", "FBT002", "A002"]
+"tests/*" = ["INP001", "PLR2004", "S101", "S603", "S607"]
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+split-on-trailing-comma = false
+
+[tool.basedpyright]
+pythonVersion = "3.12"
+include = ["install.py", "tagit4meplz/tools", "tests", "typings"]
+stubPath = "typings"
+extraPaths = ["tagit4meplz/tools"]
+typeCheckingMode = "strict"
+reportMissingTypeStubs = "error"
+reportImplicitOverride = "error"
+reportUnnecessaryTypeIgnoreComment = "error"
+reportImportCycles = "error"
+reportPropertyTypeMismatch = "error"
+reportUninitializedInstanceVariable = "error"
+reportUnusedCallResult = "none"
